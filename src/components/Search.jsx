@@ -1,9 +1,10 @@
 import React from 'react'
+import NavBar from './NavBar'
 
 const Search = () => {
   return (
     <div>
-
+<NavBar/>
 
 <div className="container">
                 <div className="row">
