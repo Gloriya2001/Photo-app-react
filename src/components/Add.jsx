@@ -1,10 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from './NavBar'
 
 const Add = () => {
+
+    const [data, setData] = useState(
+
+        {
+            "albumId": "",
+            "id": "",
+            "title": "",
+            "url": "",
+            "uploadDate": "",
+            "category": ""
+
+        }
+    )
+    const inputHandler = (event) => {
+        setData({ ...data, [event.target.name]: event.target.value })
+    }
+    const outputHandler = () => {
+        console.log(data)
+    }
+
+
+
+
     return (
         <div>
-<NavBar/>
+            <NavBar />
             <div className="container">
 
                 <div className="row">
@@ -16,39 +39,39 @@ const Add = () => {
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Album Id</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className="form-control" name='albumId' value={data.albumId} onChange={inputHandler} />
 
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Id</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className="form-control" name='id' value={data.id} onChange={inputHandler}/>
 
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Title</label>
-                                <input type="text" className="form-control" />
+                                <input type="text" className="form-control" name='title' value={data.title} onChange={inputHandler}/>
 
                             </div>
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Url</label>
-                                <input type="image" className="form-control" />
+                                <input type="text" className="form-control" name='url' value={data.url} onChange={inputHandler}/>
 
                             </div>
 
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">uploaded date</label>
-                                <input type="date" name="" id="" className="form-control" />
+                                <input type="date"  id="" className="form-control" name='uploadDate' value={data.uploadDate} onChange={inputHandler}/>
 
                             </div>
 
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
                                 <label htmlFor="" className="form-label">Category</label>
-                                <select name="" id="" className="form-control">
+                                <select id="" className="form-control" name='category' value={data.category} onChange={inputHandler} >
                                     <option value="electronics">electronics</option>
                                     <option value="sports">sports</option>
                                     <option value="food">food</option>
@@ -61,7 +84,7 @@ const Add = () => {
 
                             <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
 
-                                <button className="btn btn-success">Add</button>
+                                <button className="btn btn-success" onClick={outputHandler}>Add</button>
 
                             </div>
                         </div>
